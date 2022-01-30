@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import {
+  googleAuthentication,
+  useAuth,
+  handleSignOut,
+} from "./Firebase/firebase.js";
 
-function App() {
+const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const currentUser = useAuth();
+
+  const handleGoogleClick = async () => {
+    setIsLoading(true);
+    console.log(isLoading);
+    try {
+      await googleAuthentication();
+    } catch {}
+    setIsLoading(false);
+  };
+
+  const signOut = () => {
+    handleSignOut();
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <>
+        {isLoading ? "yönlendirildi" : "döndü"}
+        {!currentUser?.email ? (
+          <button onClick={handleGoogleClick}>Google</button>
+        ) : (
+          <button onClick={signOut}>Çıkış yap</button>
+        )}
+      </>
     </div>
   );
-}
+};
 
 export default App;
