@@ -27,7 +27,7 @@ const App = () => {
     <div className="App">
       <>
         {!isLoading ? (
-          <div class="center">
+          <div className="center">
             {!currentUser?.email ? (
               <button onClick={handleGoogleClick}>
                 Sign in with{" "}
