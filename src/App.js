@@ -35,7 +35,35 @@ const App = () => {
                 <FcGoogle />
               </button>
             ) : (
-              <button onClick={signOut}>Çıkış yap</button>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <p
+                  style={{
+                    paddingBottom: "10px",
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <img
+                    src={currentUser.photoURL}
+                    style={{
+                      marginBottom: "9px",
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "20px",
+                    }}
+                  />
+                  {currentUser.displayName}
+                </p>
+                <button onClick={signOut}>Çıkış yap</button>
+              </div>
             )}
           </div>
         ) : (
