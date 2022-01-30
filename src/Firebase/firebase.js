@@ -25,7 +25,6 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 // Google Authentication
-
 export const googleAuthentication = () => {
   return signInWithPopup(auth, provider)
     .then((result) => {})
