@@ -30,7 +30,7 @@ const App = () => {
           <div class="center">
             {!currentUser?.email ? (
               <button onClick={handleGoogleClick}>
-                Sign In with{" "}
+                Sign in with{" "}
                 <strong style={{ paddingLeft: "3px" }}>Google</strong>{" "}
                 <FcGoogle />
               </button>
